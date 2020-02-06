@@ -8,23 +8,15 @@ global $post;
 
 $slug = basename(get_permalink());
 $cat = get_term_by('slug', $slug, 'category');
-
-// if ($cat == false) {
-// 	$postid = url_to_postid(get_permalink());
-// 	$cat = get_term_by('id', $postid, 'category');
-// 	$slug = '';
-// }
-
 $cat = $cat->term_id;
 $posts = get_posts( array('category' => $cat, 'numberposts' => -1 ));		// here's the trick; we get posts where the category name is the same as the page name
 
-get_header();
-
-// ▲ ▼  ◄ ► ◀ ▶
-
-
 ?>
 
+<?php get_header(); ?>
+<?php get_sidebar() ?>
+
+<div id="container">
 	<main class="gallery <?php echo $slug ?>">
 
 		<section id="artwork">
@@ -58,5 +50,6 @@ get_header();
 		</section>
 
 	</main>
+</div>
 
 <?php get_footer(); ?>
