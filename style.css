@@ -66,26 +66,30 @@ body, html { height:100%; }
 	-------------------------------------------------------*/
 
 #container {
-	padding:120px 80px;
-	height:100%;
-	width:100%;
+  display: flex;
+  justify-content: center;
+  margin-left: 172px;
+	padding: 72px 12px;
 }
+
 header {
-	top:72px;
-	position:fixed;
+  padding: 16px 20px;
+	position: fixed;
+  width: 100%;
+  z-index: 1000;
 }
+
 #sidebar {
-	position:fixed;
-	top: 120px;		/* ghetto but dont want to change right now */
-	width:172px;
-	padding: 0 1em;
-	border-right:1px solid #eee;
-	z-index:999;
-	background:rgba(255, 255, 255, 0.9);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	width: 172px;
+	padding: 72px 1em 2em 1em;
+	z-index: 999;
+  background: rgba(244,244,244,0.92);
 }
+
 main {
-	display: block;
-	margin:0 0 0 200px;
 	max-width: 1200px;
 }
 
@@ -103,7 +107,6 @@ strong, b { font-weight:bold; }
 em, i { font-style:italic; font-family:Georgia, serif; }
 hr { border-top:2px dotted #ccc; clear:both; margin:4em 0; }
 
-/*h1, h2, h3, h4, h5 { font-family:'Proxima Nova Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Arial, sans-serif; color:#000; letter-spacing: 0.05em; }*/
 h1, h2, h3, h4, h5 { font-family:'Proxima Nova Condensed', 'Proxima Nova Light', 'Lucida Sans', Arial, sans-serif; color:#000; }
 h1 { font-size:2em; }
 h2 { font-size:20px; margin-bottom:20px; padding-bottom:2px; text-transform:uppercase; border-bottom:3px solid #000; }
@@ -113,11 +116,11 @@ h5 { font-size:15px; margin:0 }
 
 
 /* --- links --- */
-a					{ text-decoration:none; background:#eee; padding:0 4px; color:#333; }
-a:hover				{ background-color:#ccc; }
-a:focus 			{ outline:thin dotted; }
+a       { text-decoration:none; background:#eee; padding:0 4px; color:#333; }
+a:hover { background-color:#ccc; }
+a:focus { outline:thin dotted; }
 a:hover, a:active	{ outline:0; }
-a { -webkit-transition:all 0.2s ease-in-out; -moz-transition:all 0.2s ease-in-out; -o-transition:all 0.2s ease-in-out; transition: all 0.2s; }
+a { transition: all 0.2s; }
 
 /* --- images --- */
 img { max-width:100%; height:auto; }
@@ -143,7 +146,7 @@ li { line-height:1.5; }
 	-------------------------------------------------------*/
 
 /* --- header --- */
-h1 { position: absolute; top:-3em; }
+/* h1 { position: absolute; top:-3em; } */
 h1 a { color:#000; color:#555; padding:0; background:none; }
 h1 a:hover { color:#000; background:none; }
 h1 a:hover span { color:#555; }
@@ -217,18 +220,16 @@ article li { list-style:disc inside; margin-left:12px; }
 
 /* --- small screens --- */
 @media only screen and (max-width: 640px) {
+  header { background: #fff; z-index: 998; }
 
-	/*header { position:relative; }*/
+	#container { margin-left: 0; }
 
-	#container { width:600px; padding:20px; }
-	#container { height:100%; width:100%; padding:0; }
-
-	h1 { display:none; }
-	#sidebar { padding: 2em 1em; position:fixed; top:0; height:100%; margin:0; background:rgba(244,244,244,0.95); left:-160px; transition: left 0.3s; }
+	#sidebar { left:-160px; transition: left 0.2s; }
 	#sidebar.active { left:0; }
 	#toggle { display:block; }
 	#scroller { overflow: auto; height: 100%; }
 
+  .active #toggle { transform: rotate(180deg); }
 	nav .parent > a { background:none; }
 	.children { display:block; }
 
@@ -299,14 +300,10 @@ article li { list-style:disc inside; margin-left:12px; }
 	content: "\f231";
 }
 
-/*
-.icon-envelope:before {
-	content: "\f003";
+.icon-instagram:before {
+  content: "\f16d";
 }
-.icon-pinterest:before {
-	content: "\f0d2";
-}
-*/
+
 
 .fb {    width:24px; height:24px; padding:0; margin:4px 0; display:block; background-image:url('images/util/fb.png'); }
 .email { width:24px; height:24px; padding:0; margin:4px 0; display:block; background-image:url('images/util/email.png'); }
@@ -331,7 +328,7 @@ input#mce-EMAIL {
   padding: 0.5em 1em;
   margin: 0.5em 0;
   width: 100%;
-  -webkit-transition:all 0.2s ease-in-out; -moz-transition:all 0.2s ease-in-out; -o-transition:all 0.2s ease-in-out; transition: all 0.2s;
+  transition: all 0.2s;
 }
 #mc_embed_signup input[type="submit"]:hover {
 	background: #999;
