@@ -2,7 +2,9 @@
 <?php $images = array(        88, 29, 34); // any 3 of these get selected ?>
 
 <?php get_header(); ?>
+<?php get_sidebar() ?>
 
+<div id="container">
 	<main class="splash">
 
 	<?php
@@ -18,5 +20,6 @@
 	?>
 
 	</main>
+</div>
 
 <?php get_footer(); ?>
