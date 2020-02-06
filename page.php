@@ -1,18 +1,21 @@
 <?php $slug = basename(get_permalink()); ?>
 <?php get_header(); ?>
+<?php get_sidebar() ?>
 
-	<main>
+  <div id="container">
+    <main>
 
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-		<article>
+      <article>
 
-			<?php the_content(); ?>
+        <?php the_content(); ?>
 
-		</article>
+      </article>
 
-	<?php endwhile; endif; ?>
+    <?php endwhile; endif; ?>
 
-	</main>
+    </main>
+  </div>
 
 <?php get_footer(); ?>
